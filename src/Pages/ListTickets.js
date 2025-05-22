@@ -5,6 +5,7 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 import { ClientSideRowModelModule } from 'ag-grid-community';
 import { ModuleRegistry } from '@ag-grid-community/core';
+import Sidebar from "../Components/SideBar.js";
 
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
 
@@ -12,6 +13,10 @@ const ListTickets = () => {
   const [rowData, setRowData] = useState([]);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+
+  //Sidebar'da rol ve kullanıcı adını almak için localStorage'dan verileri alıyoruz
+  const role = localStorage.getItem("role");
+  const username = localStorage.getItem("username");
 
   const fetchTickets = useCallback(() => {
     fetch("http://localhost:5094/api/Ticket/getAllTicketsByRole", {
@@ -70,18 +75,7 @@ const ListTickets = () => {
 
   return (
     <div className="container">
-      <div className="sidebar">
-        <div className="logo">HelpDesk</div>
-        <ul className="nav">
-          <li><span className="icon">🎫</span> <span className="label">Tickets</span></li>
-          <li><span className="icon">👥</span> <span className="label">Agents</span></li>
-          <li><span className="icon">⚙️</span> <span className="label">Settings</span></li>
-        </ul>
-        <div className="profile">
-          <img src="https://i.pravatar.cc/40" alt="user" />
-          <span>User</span>
-        </div>
-      </div>
+      <Sidebar role={role} username={username} />
 
       <div className="main-grid">
         <div className="ticket-grid ag-theme-alpine">

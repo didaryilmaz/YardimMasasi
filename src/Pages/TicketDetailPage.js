@@ -3,11 +3,16 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ResponseBox from "../Components/ResponseBox";
 import "./SupportDashboard.css";
+import Sidebar from "../Components/SideBar.js";
 
 const TicketDetailPage = () => {
   const { ticketId } = useParams();
   const [ticket, setTicket] = useState(null);
   const navigate = useNavigate();
+
+  //Sidebar'da rol ve kullanıcı adını almak için localStorage'dan verileri alıyoruz
+  const role = localStorage.getItem("role");
+  const username = localStorage.getItem("username");
 
   useEffect(() => {
     const fetchTicketDetail = async () => {
@@ -30,28 +35,8 @@ const TicketDetailPage = () => {
   if (!ticket) return <div>Yükleniyor...</div>;
 
   return (
-    <div className="support-container">
-      {/* Sidebar */}
-      <div className="sidebar">
-        <div className="logo">HelpDesk</div>
-        <ul className="nav">
-          <li onClick={() => navigate('/ticket-list')} style={{ cursor: 'pointer' }}>
-            <span className="icon">🎫</span> <span className="label">Tickets</span>
-          </li>
-          <li>
-            <span className="icon">👥</span> <span className="label">Agents</span>
-          </li>
-          <li>
-            <span className="icon">⚙️</span> <span className="label">Settings</span>
-          </li>
-        </ul>
-        <div className="profile">
-          <img src="https://i.pravatar.cc/40" alt="user" />
-          <span>Kullanıcı</span>
-        </div>
-      </div>
-
-      {/* Main Content */}
+    <div className="container">
+      <Sidebar role={role} username={username} />
       <div className="main-content">
         <div className="ticket-detail-container">
           {/* Left side - Message Area */}

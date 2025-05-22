@@ -2,12 +2,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./SupportDashboard.css";
 import { useNavigate } from "react-router-dom";
+import Sidebar from "../Components/SideBar.js";
 
 const AdminDashboard = () => {
   const [tickets, setTickets] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedPriority, setSelectedPriority] = useState("");
   const navigate = useNavigate();
+
+  //Sidebar'da rol ve kullanıcı adını almak için localStorage'dan verileri alıyoruz
+  const role = localStorage.getItem("role");
+  const username = localStorage.getItem("username");
 
   const categories = [
     "Yazılım Hatası", 
@@ -66,22 +71,8 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="support-container">
-      <div className="sidebar">
-        <div className="logo">HelpDesk</div>
-        <ul className="nav">
-          <li onClick={() => navigate("/ticket-list")}>
-            <span className="icon">🎫</span> <span className="label">Tickets</span>
-          </li>
-          <li onClick={() => navigate("/reports")}>
-            <span className="icon">📊</span> <span className="label">Raporlar</span>
-          </li>
-        </ul>
-        <div className="profile">
-          <img src="https://i.pravatar.cc/40" alt="admin" />
-          <span>Admin</span>
-        </div>
-      </div>
+    <div className="container">
+      <Sidebar role={role} username={username} />
 
       <div className="main-content">
         <div className="content-box">

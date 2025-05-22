@@ -3,12 +3,17 @@ import axios from "axios";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import { useNavigate } from "react-router-dom";
 import "./ReportPage.css"; 
+import Sidebar from "../Components/SideBar.js";
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#B455F5", "#FF4560"];
 
 const ReportPage = () => {
   const [categoryStats, setCategoryStats] = useState([]);
   const navigate = useNavigate();
+
+    //Sidebar'da rol ve kullanıcı adını almak için localStorage'dan verileri alıyoruz
+    const role = localStorage.getItem("role");
+    const username = localStorage.getItem("username");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -22,24 +27,9 @@ const ReportPage = () => {
   }, []);
 
   return (
-    <div className="report-container">
-      <div className="sidebar">
-        <div className="logo">HelpDesk</div>
-        <ul className="nav">
-          <li onClick={() => navigate("/ticket-list")}>
-            <span className="icon">🎫</span> <span className="label">Tickets</span>
-          </li>
-          <li onClick={() => navigate("/reports")}>
-            <span className="icon">📊</span> <span className="label">Raporlar</span>
-          </li>
-        </ul>
-        <div className="profile">
-          <img src="https://i.pravatar.cc/40" alt="admin" />
-          <span>Admin</span>
-        </div>
-      </div>
+    <div className="container">
+      <Sidebar role={role} username={username} />
 
-      {/* Main Content */}
       <div className="main-content">
         <h2>Raporlar</h2>
 
