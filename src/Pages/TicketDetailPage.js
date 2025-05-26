@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ResponseBox from "../Components/ResponseBox";
-import "./SupportDashboard.css";
+import "./Dashboard.css";
 import Sidebar from "../Components/SideBar.js";
 
 const TicketDetailPage = () => {

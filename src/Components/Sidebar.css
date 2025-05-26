@@ -28,3 +28,18 @@
   gap: 0.5rem;
   margin-top: auto;
 }
+
+/* logout-button */
+.logout-button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}

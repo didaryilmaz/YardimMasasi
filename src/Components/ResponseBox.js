@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import MessageBubble from "./MessageBubble";
+import "./ResponseBox.css"; 
 
 const ResponseBox = ({ ticketId }) => {
   const [responses, setResponses] = useState([]);
@@ -62,8 +63,8 @@ const ResponseBox = ({ ticketId }) => {
   }, [ticketId]);
 
   return (
-    <div className="border rounded p-4 flex flex-col h-[400px] overflow-hidden">
-      <div className="flex-1 overflow-y-auto space-y-2 mb-4">
+    <div className="response-box">
+      <div className="messages">
         {responses.map((r, index) => (
           <MessageBubble
             key={r.id || index}
@@ -73,24 +74,20 @@ const ResponseBox = ({ ticketId }) => {
           />
         ))}
       </div>
-      <div className="flex gap-2">
+      <div className="input-area">
         <input
-          className="flex-1 border px-2 py-1 rounded"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Mesajınızı yazın..."
           disabled={!ticketId}
         />
-        <button
-          className="bg-blue-500 text-white px-4 py-1 rounded"
-          onClick={handleSend}
-          disabled={!ticketId}
-        >
+        <button onClick={handleSend} disabled={!ticketId}>
           Gönder
         </button>
       </div>
     </div>
   );
+
 };
 
 export default ResponseBox;
