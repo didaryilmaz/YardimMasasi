@@ -13,6 +13,7 @@ import TicketDetailPage from "./Pages/TicketDetailPage.js";
 import AdminDashboard from "./Pages/AdminDashboard.js";
 import ReportPage from "./Pages/ReportPage.js";
 import TicketEditPage from "./Pages/TicketEditPage.js";
+import AdminSettingsPage from "./Pages/AdminSettingsPage.js";
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 
@@ -32,6 +33,7 @@ function App() {
               <Route path="/admin-dashboard" element={<AdminDashboard />} />
               <Route path="/reports" element={<ReportPage />} />
               <Route path="/edit-ticket/:ticketId" element={<TicketEditPage />} />
+              <Route path="/manage-settings" element={<AdminSettingsPage />} />
           </Routes>
         </AuthProvider>
       </div>

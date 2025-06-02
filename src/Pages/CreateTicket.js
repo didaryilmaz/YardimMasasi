@@ -15,66 +15,79 @@ const TicketForm = () => {
   const [description, setDescription] = useState("");
   const [categoryId, setCategoryId] = useState("");
   const [priorityId, setPriorityId] = useState("");
+  const [categories, setCategories] = useState([]);
+  const [priorities, setPriorities] = useState([]);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
-  //Sidebar'da rol ve kullanıcı adını almak için localStorage'dan verileri alıyoruz
   const role = localStorage.getItem("role");
   const username = localStorage.getItem("username");
 
   const fetchTickets = useCallback(async () => {
+    try {
+      const response = await axios.get(`${API_URL}/mytickets`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      const formattedTickets = response.data.map(ticket => ({
+        id: ticket.id,
+        description: ticket.description,
+        status: ticket.status,
+        category: ticket.category,
+        priority: ticket.priority,
+        createdAt: ticket.createdAt,
+        isResolved: ticket.isResolved
+      }));
+
+      setTickets(formattedTickets);
+    } catch (error) {
+      console.error("Ticketlar alınırken hata:", error);
+    }
+  }, [token]);
+
+  const fetchCategories = useCallback(async () => {
   try {
-    const response = await axios.get(`${API_URL}/mytickets`, {
+    const response = await axios.get(`${API_URL}/categories`, {
       headers: { Authorization: `Bearer ${token}` },
     });
-
-    const formattedTickets = response.data.map(ticket => ({
-      id: ticket.id,
-      description: ticket.description,
-      status: ticket.status,
-      category: ticket.category,  
-      priority: ticket.priority,   
-      createdAt: ticket.createdAt,
-    }));
-
-
-    setTickets(formattedTickets);
+    console.log("Kategori cevabı:", response.data); 
+    setCategories(response.data);
   } catch (error) {
-    console.error("Ticketlar alınırken hata:", error);
+    console.error("Kategoriler alınırken hata:", error);
   }
 }, [token]);
+
+const fetchPriorities = useCallback(async () => {
+  try {
+    const response = await axios.get(`${API_URL}/priorities`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    console.log("Öncelik cevabı:", response.data); 
+    setPriorities(response.data);
+  } catch (error) {
+    console.error("Öncelikler alınırken hata:", error);
+  }
+}, [token]);
+
 
   useEffect(() => {
     if (!token) {
       navigate("/login");
     } else {
       fetchTickets();
+      fetchCategories();
+      fetchPriorities();
     }
-  }, [token, navigate, fetchTickets]);
-
-  const categories = [
-    { categoryId: 1, name: "Yazılım Hatası" },
-    { categoryId: 2, name: "Donanım Sorunu" },
-    { categoryId: 3, name: "Kullanıcı Erişimi" },
-    { categoryId: 4, name: "Ağ Problemleri" },
-  ];
-
-  const priorities = [
-    { priorityId: 1, name: "Düşük" },
-    { priorityId: 2, name: "Orta" },
-    { priorityId: 3, name: "Yüksek" },
-    { priorityId: 4, name: "Acil" },
-  ];
+  }, [token, navigate, fetchTickets, fetchCategories, fetchPriorities]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
 
     const ticketData = {
       description,
       categoryId: parseInt(categoryId),
       priorityId: parseInt(priorityId),
     };
-
+    console.log("Gönderilecek veri:", ticketData);
     try {
       await axios.post(`${API_URL}/createTicket`, ticketData, {
         headers: { Authorization: `Bearer ${token}` },
@@ -93,7 +106,7 @@ const TicketForm = () => {
 
   const markAsResolved = async (id) => {
     try {
-      await axios.put(`${API_URL}/${id}`, { isResolved: true }, {
+      await axios.put(`${API_URL}/updateTicket/${id}`, { isResolved: true }, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchTickets();
@@ -104,7 +117,7 @@ const TicketForm = () => {
 
   const deleteTicket = async (id) => {
     try {
-      await axios.delete(`${API_URL}/${id}`, {
+      await axios.delete(`${API_URL}/deleteTicket/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchTickets();
@@ -126,21 +139,20 @@ const TicketForm = () => {
         return date.toLocaleString("tr-TR");
       }
     },
-  {
-    headerName: "İşlemler",
-    field: "actions",
-    width: 200,
-    cellRendererFramework: (params) => (
-      <div>
-        {!params.data.isResolved && (
-          <button onClick={() => markAsResolved(params.data.id)}>Tamamlandı</button>
-        )}
-        <button onClick={() => deleteTicket(params.data.id)}>Sil</button>
-      </div>
-    ),
-  },
-];
-
+    {
+      headerName: "İşlemler",
+      field: "actions",
+      width: 200,
+      cellRendererFramework: (params) => (
+        <div>
+          {!params.data.isResolved && (
+            <button onClick={() => markAsResolved(params.data.id)}>Tamamlandı</button>
+          )}
+          <button onClick={() => deleteTicket(params.data.id)}>Sil</button>
+        </div>
+      ),
+    },
+  ];
 
   return (
     <div className="container">
@@ -162,17 +174,25 @@ const TicketForm = () => {
             <select value={categoryId} onChange={(e) => setCategoryId(e.target.value)} required>
               <option value="">Kategori Seçin</option>
               {categories.map((cat) => (
-                <option key={cat.categoryId} value={cat.categoryId}>{cat.name}</option>
+                <option key={cat.categoryId} value={cat.categoryId}>
+                  {cat.categoryName}
+                </option>
               ))}
             </select>
+
+
 
             <label>Öncelik</label>
             <select value={priorityId} onChange={(e) => setPriorityId(e.target.value)} required>
               <option value="">Öncelik Seçin</option>
               {priorities.map((pri) => (
-                <option key={pri.priorityId} value={pri.priorityId}>{pri.name}</option>
+                <option key={pri.priorityId} value={pri.priorityId}>
+                  {pri.priorityName}
+                </option>
               ))}
             </select>
+
+
 
             <button type="submit">Gönder</button>
           </form>

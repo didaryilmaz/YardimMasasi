@@ -33,6 +33,9 @@ const Sidebar = ({ role, username }) => {
             <li onClick={() => navigate("/settings")}>
               <span className="icon">⚙️</span> <span className="label">Settings</span>
             </li>
+            <li onClick={() => navigate("/manage-settings")}>
+              <span className="icon">🧩</span> <span className="label">Kategori & Öncelik</span>
+            </li>
           </>
         )}
       </ul>

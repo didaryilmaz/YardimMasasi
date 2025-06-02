@@ -153,3 +153,99 @@
   background-color: #ff4d4d;
   color: white;
 }
+
+/* AdminSettingsPage için özel stiller */
+.admin-settings-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Arial', sans-serif;
+}
+
+.admin-settings-page h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #2f3542;
+  text-align: center;
+}
+
+.admin-settings-page .section {
+  margin-bottom: 40px;
+}
+
+.admin-settings-page h3 {
+  font-size: 20px;
+  color: #3742fa;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #dfe4ea;
+  padding-bottom: 4px;
+}
+
+.admin-settings-page ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+}
+
+.admin-settings-page li {
+  background-color: #ffffff;
+  padding: 10px 16px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #dcdde1;
+  transition: background-color 0.2s ease;
+}
+
+.admin-settings-page li:hover {
+  background-color: #f1f2f6;
+}
+
+.admin-settings-page .input-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.admin-settings-page input {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.admin-settings-page input[type="number"] {
+  max-width: 100px;
+}
+
+.admin-settings-page button {
+  background-color: #1e90ff;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.admin-settings-page button:hover {
+  background-color: #0056b3;
+}
+
+.admin-settings-page .section button {
+  margin-left: 10px;
+  background-color: #ff4757;
+}
+
+.admin-settings-page .section button:hover {
+  background-color: #c0392b;
+}

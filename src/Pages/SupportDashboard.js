@@ -32,6 +32,7 @@ const SupportDashboard = () => {
         const res = await axios.get('http://localhost:5094/api/ticket/getAllTicketsByRole', {
           headers: { Authorization: `Bearer ${token}` }
         });
+        console.log('Alınan ticketlar:', res.data);
 
         // Sadece kendisine atanmış ticketları filtrele
         const assignedTickets = res.data.filter(ticket => ticket.assignedSupportId === userId || ticket.AssignedSupportId === userId);
