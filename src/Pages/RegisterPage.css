@@ -1,62 +1,68 @@
 body {
-    margin: 0;
-    font-family: sans-serif;
-    background-color: #f3f4f6;
-  }
-  
-  .register-container {
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .register-box {
-    background-color: white;
-    padding: 32px;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .register-box h2 {
-    text-align: center;
-    margin-bottom: 24px;
-    color: #1f2937;
-  }
-  
-  .register-box label {
-    display: block;
-    margin: 12px 0 4px;
-    font-weight: 600;
-    color: #374151;
-  }
-  
-  .register-box input,
-  .register-box select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 12px;
-    font-size: 14px;
-  }
-  
-  .register-box button {
-    margin-top: 16px;
-    width: 100%;
-    background-color: #3b82f6;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .register-box button:hover {
-    background-color: #2563eb;
-  }
-  
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f3f4f6;
+}
+
+.register-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-box {
+  background-color: white;
+  padding: 32px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.register-box img.logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.register-box h2 {
+  margin-bottom: 24px;
+  color: #1f2937;
+}
+
+.register-box label {
+  display: block;
+  margin: 12px 0 4px;
+  font-weight: 600;
+  color: #374151;
+  text-align: left;
+}
+
+.register-box input,
+.register-box select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.register-box button {
+  margin-top: 16px;
+  width: 100%;
+  background-color: #3b82f6;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.register-box button:hover {
+  background-color: #2563eb;
+}

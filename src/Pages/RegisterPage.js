@@ -34,6 +34,7 @@ const RegisterPage = () => {
     return (
         <div className="register-container">
             <div className="register-box">
+                <img src="/HelpDESK.png" alt="Logo" className="logo" />
                 <h2>Kayıt Ol</h2>
                 <form onSubmit={handleRegister}>
                     <label htmlFor="username">Kullanıcı Adı</label>

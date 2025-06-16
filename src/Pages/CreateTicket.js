@@ -83,10 +83,11 @@ const fetchPriorities = useCallback(async () => {
   const handleSubmit = async (e) => {
 
     const ticketData = {
-      description,
-      categoryId: parseInt(categoryId),
-      priorityId: parseInt(priorityId),
+      Description: description,
+      CategoryId: parseInt(categoryId),
+      PriorityId: parseInt(priorityId),
     };
+
     console.log("Gönderilecek veri:", ticketData);
     try {
       await axios.post(`${API_URL}/createTicket`, ticketData, {

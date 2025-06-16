@@ -6,7 +6,7 @@ const Sidebar = ({ role, username }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.clear(); // Token, username, role vs. hepsini temizle
+    localStorage.clear();
     navigate("/");
   };
 
@@ -15,26 +15,35 @@ const Sidebar = ({ role, username }) => {
       <div className="logo">HelpDesk</div>
 
       <ul className="nav">
-        <li onClick={() => navigate("/ticket-list")}>
-          <span className="icon">🎫</span> <span className="label">Tickets</span>
+        <li
+          onClick={() =>
+            navigate(role === "User" ? "/my-tickets" : "/ticket-list")
+          }
+        >
+          <span className="icon">🎫</span>
+          <span className="label">Tickets</span>
         </li>
 
         {(role === "Admin" || role === "Destek") && (
           <li onClick={() => navigate("/reports")}>
-            <span className="icon">📊</span> <span className="label">Raporlar</span>
+            <span className="icon">📊</span>
+            <span className="label">Raporlar</span>
           </li>
         )}
 
         {role === "Admin" && (
           <>
             <li onClick={() => navigate("/agents")}>
-              <span className="icon">👥</span> <span className="label">Agents</span>
+              <span className="icon">👥</span>
+              <span className="label">Agents</span>
             </li>
             <li onClick={() => navigate("/settings")}>
-              <span className="icon">⚙️</span> <span className="label">Settings</span>
+              <span className="icon">⚙️</span>
+              <span className="label">Settings</span>
             </li>
             <li onClick={() => navigate("/manage-settings")}>
-              <span className="icon">🧩</span> <span className="label">Kategori & Öncelik</span>
+              <span className="icon">🧩</span>
+              <span className="label">Kategori & Öncelik</span>
             </li>
           </>
         )}
@@ -43,7 +52,9 @@ const Sidebar = ({ role, username }) => {
       <div className="profile">
         <img src="https://i.pravatar.cc/40" alt="user" />
         <span>{username}</span>
-        <button onClick={handleLogout} className="logout-button">Çıkış Yap</button>
+        <button onClick={handleLogout} className="logout-button">
+          Çıkış Yap
+        </button>
       </div>
     </div>
   );
