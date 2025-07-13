@@ -18,21 +18,21 @@ Kullanıcı dostu bir arayüz sunar ve JWT tabanlı kimlik doğrulama ile güven
 - Rol bazlı yetki ve görünüm (User, Support, Admin)
 - Admin paneli (AG Grid ile)
 
-### Uygulama İçi Ekran Görüntüleri / In-App Screenshots
+### Uygulama İçi Ekran Görüntüleri 
 
-#### Kullanıcı Ekranı / User Role Screen  
+#### Kullanıcı Ekranı 
 <img width="281" height="210" alt="User Screen" src="https://github.com/user-attachments/assets/07f8ae9e-1eab-4521-8467-38c11aaba790" />
 
-#### Admin Ekranı / Admin Role Screen  
+#### Admin Ekranı 
 <img width="279" height="208" alt="Admin Screen" src="https://github.com/user-attachments/assets/29f3b3de-ab34-40b1-9870-50285a3a8857" />
 
-#### Destek Personeli Ekranı / Support Role Screen  
+#### Destek Personeli Ekranı   
 <img width="250" height="187" alt="Support Screen" src="https://github.com/user-attachments/assets/f7fcdc02-5942-4758-9493-92413b8bb769" />
 
-#### Rapor Sayfası / Report Page Screen  
+#### Rapor Sayfası   
 <img width="251" height="188" alt="Report Screen" src="https://github.com/user-attachments/assets/e6631299-2213-4b94-be50-44a9c00a0520" />
 
-#### Admin Kategori ve Öncelik Ekleme / Admin - Category and Priority Management  
+#### Admin Kategori ve Öncelik Ekleme  
 <img width="252" height="188" alt="Category and Priority" src="https://github.com/user-attachments/assets/ef632afb-a3a5-481f-ab96-9d3ba3092761" />
 
 ### Gereklilikler
