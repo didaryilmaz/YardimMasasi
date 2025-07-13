@@ -45,8 +45,8 @@ Kullanıcı dostu bir arayüz sunar ve JWT tabanlı kimlik doğrulama ile güven
 Aşağıdaki komutları terminalde çalıştırarak projeyi başlatabilirsiniz:
 
 ```bash
-git clone https://github.com/your-username/helpdesk-frontend.git
-cd helpdesk-frontend
+git clone https://github.com/your-username/YardimMasasi.git
+cd YardimMasasi
 npm install
 npm start
 ```
@@ -105,8 +105,8 @@ Admin - Category and Priority Management Screen
 Run the following commands in your terminal to install and launch the project:
 
 ```bash
-git clone https://github.com/your-username/helpdesk-frontend.git
-cd helpdesk-frontend
+git clone https://github.com/your-username/YardimMasasi.git
+cd YardimMasasi
 npm install
 npm start
 ```
