@@ -83,21 +83,21 @@ An optional **Admin Panel** is available using AG Grid for advanced data tables.
 - Admin dashboard with AG Grid (optional)
 - Responsive mobile-friendly UI
 
-### Uygulama içi ekran görüntüleri
- 
-User Kullanıcısının Ekranı
+### In-App Screenshots
+
+User Role Screen  
 <img width="281" height="210" alt="image" src="https://github.com/user-attachments/assets/07f8ae9e-1eab-4521-8467-38c11aaba790" />
 
-Admin Kullanıcısının Ekranı
+Admin Role Screen  
 <img width="279" height="208" alt="image" src="https://github.com/user-attachments/assets/29f3b3de-ab34-40b1-9870-50285a3a8857" />
 
-Destek Kullanıcısının Ekranı
+Support Role Screen  
 <img width="250" height="187" alt="image" src="https://github.com/user-attachments/assets/f7fcdc02-5942-4758-9493-92413b8bb769" />
 
-Rapor Sayfası Ekranı
+Report Page Screen  
 <img width="251" height="188" alt="image" src="https://github.com/user-attachments/assets/e6631299-2213-4b94-be50-44a9c00a0520" />
 
-Admin Kategori ve Önceliklendirme Ekleme Ekranı
+Admin - Category and Priority Management Screen  
 <img width="252" height="188" alt="image" src="https://github.com/user-attachments/assets/ef632afb-a3a5-481f-ab96-9d3ba3092761" />
 
 ### Prerequisites
