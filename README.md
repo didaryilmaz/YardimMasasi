@@ -21,23 +21,18 @@ Kullanıcı dostu bir arayüz sunar ve JWT tabanlı kimlik doğrulama ile güven
 ### Uygulama içi ekran görüntüleri
  
 User Kullanıcısının Ekranı
-
 <img width="281" height="210" alt="image" src="https://github.com/user-attachments/assets/07f8ae9e-1eab-4521-8467-38c11aaba790" />
 
 Admin Kullanıcısının Ekranı
-
 <img width="279" height="208" alt="image" src="https://github.com/user-attachments/assets/29f3b3de-ab34-40b1-9870-50285a3a8857" />
 
 Destek Kullanıcısının Ekranı
-
 <img width="250" height="187" alt="image" src="https://github.com/user-attachments/assets/f7fcdc02-5942-4758-9493-92413b8bb769" />
 
 Rapor Sayfası Ekranı
-
 <img width="251" height="188" alt="image" src="https://github.com/user-attachments/assets/e6631299-2213-4b94-be50-44a9c00a0520" />
 
 Admin Kategori ve Önceliklendirme Ekleme Ekranı
-
 <img width="252" height="188" alt="image" src="https://github.com/user-attachments/assets/ef632afb-a3a5-481f-ab96-9d3ba3092761" />
 
 ### Gereklilikler
