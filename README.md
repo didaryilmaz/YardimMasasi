@@ -38,7 +38,7 @@ Kullanıcı dostu bir arayüz sunar ve JWT tabanlı kimlik doğrulama ile güven
 ### Gereklilikler
 
 - Node.js ve npm kurulu olmalıdır.
-- Backend API çalışır durumda olmalıdır (varsayılan: `http://localhost:5000`)
+- Backend API çalışır durumda olmalıdır (varsayılan: `http://localhost:3000`)
 
 ### Kurulum
 
@@ -98,7 +98,7 @@ Admin - Category and Priority Management Screen
 ### Prerequisites
 
 - Node.js and npm must be installed
-- Backend API should be running (`http://localhost:5000` by default)
+- Backend API should be running (`http://localhost:3000` by default)
 
 ### Installation
 
